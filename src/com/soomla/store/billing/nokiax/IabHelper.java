@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-package com.soomla.store.billing.google;
+package com.soomla.store.billing.nokiax;
 
 import android.app.Activity;
 import android.app.PendingIntent;
@@ -26,7 +26,7 @@ import android.content.SharedPreferences;
 import android.os.*;
 import android.text.TextUtils;
 
-import com.android.vending.billing.IInAppBillingService;
+import com.nokia.payment.iap.aidl.INokiaIAPService;
 import com.soomla.store.SoomlaApp;
 import com.soomla.store.StoreConfig;
 import com.soomla.store.StoreUtils;
@@ -93,7 +93,7 @@ public class IabHelper {
     String mAsyncOperation = "";
 
     // Connection to the service
-    IInAppBillingService mService;
+    INokiaIAPService mService;
     ServiceConnection mServiceConn;
 
     // The request code used to launch purchase flow
@@ -169,7 +169,7 @@ public class IabHelper {
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
                 StoreUtils.LogDebug(TAG, "Billing service connected.");
-                mService = IInAppBillingService.Stub.asInterface(service);
+                mService = INokiaIAPService.Stub.asInterface(service);
                 String packageName = SoomlaApp.getAppContext().getPackageName();
                 try {
                     StoreUtils.LogDebug(TAG, "Checking for in-app billing 3 support.");
@@ -215,8 +215,8 @@ public class IabHelper {
             }
         };
 
-        Intent serviceIntent = new Intent("com.android.vending.billing.InAppBillingService.BIND");
-        serviceIntent.setPackage("com.android.vending");
+        Intent serviceIntent = new Intent("com.nokia.payment.iapenabler.InAppBillingService.BIND");
+        serviceIntent.setPackage("com.nokia.payment");
         if (!SoomlaApp.getAppContext().getPackageManager().queryIntentServices(serviceIntent, 0).isEmpty()) {
             // service available to handle that Intent
             SoomlaApp.getAppContext().bindService(serviceIntent, mServiceConn, Context.BIND_AUTO_CREATE);

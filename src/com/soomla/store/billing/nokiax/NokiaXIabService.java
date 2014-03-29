@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.soomla.store.billing.google;
+package com.soomla.store.billing.nokiax;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -28,7 +28,7 @@ import com.soomla.store.billing.IabPurchase;
 
 import java.util.List;
 
-public class GooglePlayIabService implements IIabService {
+public class NokiaxIabService implements IIabService {
 
 
     public void initializeBillingService(final IabCallbacks.IabInitListener iabListener) {
