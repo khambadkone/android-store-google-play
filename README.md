@@ -1,9 +1,9 @@
 *This project is a billing provider plugin to [android-store](https://github.com/soomla/android-store).*
 
 
-## android-store-google-play
+## android-store-nokia-x
 
-android-store-google-play is the default billing service plugin for android-store. It uses the default code given by Google which was adapted to IIabService interface so it'll be useful to SOOMLA's android-store.
+android-store-nokia-x is based on SOOMLA's default billing service plugin for android-store (using default code given by Google which was adapted to IIabService interface so it'll be useful to SOOMLA's android-store.)
 
 In order to work with this plugin just android-store's [Getting Started](https://github.com/soomla/android-store#getting-started).
 
